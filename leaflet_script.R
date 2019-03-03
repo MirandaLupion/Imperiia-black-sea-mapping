@@ -8,6 +8,6 @@ leaflet() %>%
   addLayersControl(
     baseGroups = c("Stamen Watercolor", "Physical Map"),
     options = layersControlOptions(collapsed = FALSE)) %>% 
-  setMaxBounds(lng1 = 55, lat1 = 40, lng2 = 68, lat2 = 70) %>%
-  setView(lat = 57, lng = 62, zoom = 6) 
+  setMaxBounds(lng1 = 30, lat1 = 40, lng2 = 60, lat2 = 70) %>%
+  setView(lat = 44, lng = 35, zoom = 6) 
   
