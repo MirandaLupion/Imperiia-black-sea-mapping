@@ -36,11 +36,15 @@ leaflet() %>%
                    color = "red",
                    stroke = FALSE, 
                    fillOpacity = 0.5,
-                   group = "Settlements")
+                   group = "Settlements") %>%
+  
+  # Measurement tool
+  
+  addMeasure()
 
 # Potential improvements:
 # could use colorpal to distinguish between large and small settlements in color or icon
 # pal <- colorFactor(c("navy", "red"), domain = c("settlement", "city"))
-# Potential for an outline of the two sites 
+# Potential for a rectangle outline of the two sites 
 
   
