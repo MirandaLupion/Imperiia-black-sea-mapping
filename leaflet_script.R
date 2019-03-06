@@ -8,6 +8,11 @@ library(tidyverse)
 
 landmarks <- read_csv("Settlement_coordinates_for_James_viz - Sheet1.csv")
 
+# Coloring for markers
+# pal <- colorFactor(c("navy", "red"), domain = c("town", "military"))
+# Then in addCircleMarkers color = ~pal(type)
+
+
 leaflet() %>%
   
   # Basemaps 
@@ -28,14 +33,24 @@ leaflet() %>%
   setView(lat = 44, lng = 35, zoom = 6) %>%
   
   # Settlement layers
+  # Can add blurbs in clickable pop ups
   
   addCircleMarkers(data = landmarks, 
                    ~lng, ~lat, 
-                   popup = ~as.character(name),
+                   label = ~as.character(name),
+                   labelOptions = labelOptions(noHide = F, direction = "bottom",
+                                               style = list(
+                                                 "color" = "black",
+                                                 "font-family" = "serif",
+                                                 "font-style" = "normal",
+                                                 "font-weight" = "bold",
+                                                 "box-shadow" = "3px 3px rgba(0,0,0,0.25)",
+                                                 "font-size" = "12px",
+                                                 "border-color" = "rgba(0,0,0,0.5)")),
                    radius = 6,
                    color = "red",
                    stroke = FALSE, 
-                   fillOpacity = 0.5,
+                   fillOpacity = 0.8,
                    group = "Settlements") %>%
   
   # Measurement tool
